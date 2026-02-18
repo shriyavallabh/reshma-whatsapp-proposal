@@ -370,31 +370,73 @@ img{max-width:100%;display:block}
 }
 
 /* ══════════════════════════════════════════════════════════
-   PHASE 2 PREVIEW
+   PHASE 2 — CRM + VOICE AI
    ══════════════════════════════════════════════════════════ */
 .phase2{background:var(--navy-light);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
-.phase2-card{
-  background:linear-gradient(135deg, rgba(255,77,0,.05), rgba(255,77,0,.03));
-  border:1px solid rgba(255,77,0,.15);border-radius:var(--radius);
-  padding:36px 28px;margin-top:32px;position:relative;overflow:hidden;
+.phase2-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,77,0,.1);border:1px solid rgba(255,77,0,.2);
+  color:var(--gold);padding:6px 16px;border-radius:50px;
+  font-size:.72rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+  margin-bottom:20px;
 }
-.phase2-card::before{
-  content:'COMING SOON';position:absolute;top:20px;right:20px;
-  background:rgba(255,77,0,.15);color:var(--gold);
-  font-size:.65rem;font-weight:800;letter-spacing:1.5px;
-  padding:5px 14px;border-radius:50px;
+.phase2-grid{
+  display:grid;grid-template-columns:1fr;gap:16px;margin-top:40px;
 }
-.phase2-features{
-  display:grid;grid-template-columns:1fr;gap:12px;margin-top:24px;
+@media(min-width:540px){.phase2-grid{grid-template-columns:1fr 1fr}}
+.p2-card{
+  background:var(--navy-card);border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--radius);padding:28px 24px;
+  transition:all .35s;position:relative;overflow:hidden;
 }
-@media(min-width:540px){.phase2-features{grid-template-columns:1fr 1fr}}
-.p2-item{
-  display:flex;align-items:flex-start;gap:10px;
-  padding:12px;background:rgba(255,255,255,.03);border-radius:10px;
+.p2-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-dark));
+  opacity:0;transition:opacity .35s;
 }
-.p2-item .icon{font-size:1.2rem;flex-shrink:0}
-.p2-item h4{font-size:.85rem;font-weight:700;margin-bottom:3px}
-.p2-item p{font-size:.75rem;color:var(--gray)}
+.p2-card:hover{border-color:rgba(255,77,0,.15);transform:translateY(-3px)}
+.p2-card:hover::before{opacity:1}
+.p2-card .p2-icon{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:16px;background:rgba(255,77,0,.1);
+}
+.p2-card h3{font-size:1rem;font-weight:700;margin-bottom:8px}
+.p2-card p{font-size:.85rem;color:var(--gray);line-height:1.55}
+
+/* Phase 2 Pricing */
+.p2-pricing{margin-top:40px}
+.p2-pricing-card{
+  background:var(--navy-card);border:1px solid rgba(255,77,0,.12);
+  border-radius:var(--radius);padding:32px 28px;overflow:hidden;
+}
+.p2-pricing-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:24px;flex-wrap:wrap;gap:12px;
+}
+.p2-pricing-header h3{font-size:1.1rem;font-weight:800}
+.p2-pricing-header .addon-tag{
+  background:rgba(255,77,0,.12);color:var(--gold);
+  padding:5px 14px;border-radius:50px;font-size:.68rem;
+  font-weight:800;letter-spacing:1px;text-transform:uppercase;
+}
+.p2-pricing-table{width:100%;border-collapse:collapse}
+.p2-pricing-table tr{border-bottom:1px solid rgba(255,255,255,.06)}
+.p2-pricing-table tr:last-child{border-bottom:none}
+.p2-pricing-table td{padding:14px 0;font-size:.88rem;vertical-align:top}
+.p2-pricing-table td:first-child{color:var(--gray-light);padding-right:16px}
+.p2-pricing-table td:last-child{font-weight:800;text-align:right;white-space:nowrap}
+.p2-pricing-table .detail{display:block;font-size:.72rem;color:var(--gray);font-weight:400;margin-top:2px}
+
+/* TRAI Compliance */
+.trai-badge{
+  margin-top:24px;padding:20px 24px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--radius-sm);display:flex;align-items:flex-start;gap:14px;
+}
+.trai-badge .shield{font-size:1.6rem;flex-shrink:0;line-height:1}
+.trai-badge .trai-text{font-size:.78rem;color:var(--gray);line-height:1.6}
+.trai-badge .trai-text strong{color:var(--gray-light);font-weight:700}
 
 /* ══════════════════════════════════════════════════════════
    FINAL CTA
@@ -661,42 +703,74 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
-<!-- ═══════ PHASE 2 PREVIEW ═══════ -->
+<!-- ═══════ PHASE 2 — CRM + VOICE AI ═══════ -->
 <section class="section phase2" id="phase2">
   <div class="container">
     <div class="reveal" style="text-align:center">
+      <div class="phase2-badge">⚡ Available as Add-On</div>
       <div class="section-label" style="justify-content:center">What's Next</div>
-      <h2 class="section-title" style="margin-left:auto;margin-right:auto">Phase 2: <span class="highlight">CRM + Voice AI</span></h2>
-      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">After WhatsApp automation is running, we add intelligent voice calling and a full lead pipeline.</p>
+      <h2 class="section-title" style="margin-left:auto;margin-right:auto">Phase 2: <span class="highlight">Intelligent CRM + Voice AI</span></h2>
+      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">Seamlessly integrated with your WhatsApp AI — a complete lead management ecosystem</p>
     </div>
-    <div class="phase2-card reveal">
-      <div class="phase2-features">
-        <div class="p2-item">
-          <div class="icon">🎙️</div>
-          <div>
-            <h4>AI Voice Agent</h4>
-            <p>Powered by Bolna.ai — makes and receives calls in natural Hindi/English. Follows up on hot leads automatically.</p>
-          </div>
+
+    <div class="phase2-grid">
+      <div class="p2-card reveal">
+        <div class="p2-icon">🎙️</div>
+        <h3>AI Voice Assistant</h3>
+        <p>Automated follow-up calls that sound natural and human. TRAI-compliant with consent management and DND scrubbing built in.</p>
+      </div>
+      <div class="p2-card reveal">
+        <div class="p2-icon">📊</div>
+        <h3>Smart CRM Dashboard</h3>
+        <p>Complete lead pipeline: New → Contacted → Site Visit Scheduled → Visited → Negotiation → Closed. Track every lead from first message to final sale.</p>
+      </div>
+      <div class="p2-card reveal">
+        <div class="p2-icon">🎧</div>
+        <h3>Call Recordings & Transcripts</h3>
+        <p>Every AI call recorded and transcribed. Review conversations, track objections, improve scripts automatically.</p>
+      </div>
+      <div class="p2-card reveal">
+        <div class="p2-icon">🔗</div>
+        <h3>WhatsApp + Voice Integration</h3>
+        <p>Leads captured on WhatsApp automatically flow into CRM. Voice follow-ups triggered based on lead stage. One unified system.</p>
+      </div>
+      <div class="p2-card reveal">
+        <div class="p2-icon">⏰</div>
+        <h3>Automated Follow-up Engine</h3>
+        <p>Intelligent scheduling: WhatsApp message at 24hrs, voice call at 48hrs, site visit reminder at 72hrs. No lead falls through cracks.</p>
+      </div>
+      <div class="p2-card reveal">
+        <div class="p2-icon">📈</div>
+        <h3>Analytics & Reporting</h3>
+        <p>Conversion rates, response times, call outcomes, cost per lead. Weekly automated reports delivered to your WhatsApp.</p>
+      </div>
+    </div>
+
+    <!-- Phase 2 Pricing -->
+    <div class="p2-pricing reveal">
+      <div class="p2-pricing-card">
+        <div class="p2-pricing-header">
+          <h3>Phase 2 Pricing</h3>
+          <span class="addon-tag">Add-On to Phase 1</span>
         </div>
-        <div class="p2-item">
-          <div class="icon">📊</div>
-          <div>
-            <h4>Lead Pipeline CRM</h4>
-            <p>Visual pipeline from enquiry → site visit → booking. Know exactly where every lead stands.</p>
-          </div>
-        </div>
-        <div class="p2-item">
-          <div class="icon">🎧</div>
-          <div>
-            <h4>Call Recordings</h4>
-            <p>Every call recorded, transcribed, and summarized. Never miss a detail from any conversation.</p>
-          </div>
-        </div>
-        <div class="p2-item">
-          <div class="icon">🔗</div>
-          <div>
-            <h4>Unified Dashboard</h4>
-            <p>WhatsApp + Voice + CRM — everything in one place. Single source of truth for your sales team.</p>
+        <table class="p2-pricing-table">
+          <tr>
+            <td>CRM + Voice AI Setup<span class="detail">One-time configuration, training & deployment</span></td>
+            <td>₹25,000</td>
+          </tr>
+          <tr>
+            <td>Monthly — CRM + Voice AI + Maintenance<span class="detail">Per number, includes AI compute & hosting</span></td>
+            <td>₹8,000/mo</td>
+          </tr>
+          <tr>
+            <td>Voice Call Charges<span class="detail">At actual cost — TRAI-compliant Indian numbers</span></td>
+            <td>~₹1/min</td>
+          </tr>
+        </table>
+        <div class="trai-badge">
+          <div class="shield">🛡️</div>
+          <div class="trai-text">
+            <strong>✅ TRAI Compliant</strong> — All voice calls use registered Indian numbers with DND scrubbing, digital consent verification, and AI disclosure as per TCCCPR 2025 regulations. Penalties of up to ₹10L apply for non-compliance — we handle all of this for you.
           </div>
         </div>
       </div>
