@@ -430,15 +430,34 @@ img{max-width:100%;display:block}
 .p2-pricing-table td:last-child{font-weight:800;text-align:right;white-space:nowrap}
 .p2-pricing-table .detail{display:block;font-size:.72rem;color:var(--gray);font-weight:400;margin-top:2px}
 
-/* TRAI Compliance */
-.trai-badge{
-  margin-top:24px;padding:20px 24px;
-  background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.15);
-  border-radius:var(--radius-sm);display:flex;align-items:flex-start;gap:14px;
+/* Personal Intro */
+.personal-intro{
+  padding:32px 20px 0;margin-top:80px;
 }
-.trai-badge .shield{font-size:1.6rem;flex-shrink:0;line-height:1}
-.trai-badge .trai-text{font-size:.78rem;color:var(--gray);line-height:1.6}
-.trai-badge .trai-text strong{color:var(--text);font-weight:700}
+.personal-intro .intro-card{
+  max-width:640px;margin:0 auto;
+  background:linear-gradient(135deg,rgba(255,77,0,.03),rgba(255,77,0,.07));
+  border:1px solid rgba(255,77,0,.12);
+  border-left:3px solid var(--gold);
+  border-radius:var(--radius);padding:32px 36px;
+  position:relative;
+}
+.personal-intro .intro-card::before{
+  content:'\201C';position:absolute;top:12px;left:18px;
+  font-size:3rem;color:rgba(255,77,0,.15);font-family:Georgia,serif;line-height:1;
+}
+.personal-intro .greeting{
+  font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:10px;
+  font-family:Georgia,'Times New Roman',serif;
+}
+.personal-intro .intro-body{
+  font-size:.95rem;color:var(--gray-light);line-height:1.7;
+  font-family:Georgia,'Times New Roman',serif;font-style:italic;
+}
+.personal-intro .intro-sign{
+  margin-top:16px;font-size:.82rem;font-weight:700;color:var(--gold);
+  font-family:var(--font);font-style:normal;
+}
 
 /* ══════════════════════════════════════════════════════════
    FINAL CTA
@@ -478,6 +497,17 @@ img{max-width:100%;display:block}
   <div class="nav-logo">Excellence <span>Farms</span></div>
   <a href="https://wa.me/919765071249" class="nav-cta">Let's Talk</a>
 </nav>
+
+<!-- ═══════ PERSONAL INTRO ═══════ -->
+<section class="personal-intro">
+  <div class="intro-card">
+    <div class="greeting">Hi Reshma,</div>
+    <div class="intro-body">
+      It was wonderful meeting you yesterday. Here's everything we discussed — your dedicated AI-powered WhatsApp assistant for Excellence Farms. This isn't just a proposal — it's a preview of exactly what your customers will experience.
+    </div>
+    <div class="intro-sign">— Vallabh</div>
+  </div>
+</section>
 
 <!-- ═══════ HERO ═══════ -->
 <section class="hero">
@@ -765,16 +795,10 @@ img{max-width:100%;display:block}
             <td>₹8,000/mo</td>
           </tr>
           <tr>
-            <td>Voice Call Charges<span class="detail">Includes telephony + AI compute — TRAI-compliant Indian numbers</span></td>
+            <td>Voice Call Charges<span class="detail">Per minute, includes AI compute + telephony</span></td>
             <td>₹10/min</td>
           </tr>
         </table>
-        <div class="trai-badge">
-          <div class="shield"><svg class="svg-i" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <div class="trai-text">
-            <strong><svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> TRAI Compliant</strong> — All voice calls use registered Indian numbers with DND scrubbing, digital consent verification, and AI disclosure as per TCCCPR 2025 regulations. Penalties of up to ₹10L apply for non-compliance — we handle all of this for you.
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -820,55 +844,30 @@ const playBtn = document.getElementById('demoPlayBtn');
 let demoRunning = false;
 
 const messages = [
-  { type:'outgoing', text:'Hi, I saw your ad about plots near Mulshi', delay:800 },
-  { type:'incoming', text:'Hello! Welcome to Excellence Farms <svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>\n\nYes, we have <b>RoyalView Phase 2</b> in Mulshi — premium NA plots starting at <b>₹48.9 Lakhs</b>.\n\nAre you looking for investment or to build your dream home?', delay:2200 },
-  { type:'outgoing', text:'Investment. What\'s the plot size?', delay:1200 },
-  { type:'incoming', text:'Great choice! Plot sizes range from <b>2,000 to 5,000 sq ft</b>.\n\nThe location is just 15 mins from Hinjewadi IT Park, right on the upcoming <b>Ring Road</b> route.\n\nLet me share some site photos...', delay:2400 },
-  { type:'incoming', special:'image', delay:1600 },
-  { type:'outgoing', text:'What about legal clearances?', delay:1400 },
-  { type:'incoming', text:'All plots are <b>NA approved</b>, 7/12 clear title, <b>RERA registered</b> <svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>\n\nI can share the complete legal documentation.\n\nWould you like to schedule a <b>site visit this weekend</b>?', delay:2200 },
-  { type:'outgoing', text:'What\'s the price for 3000 sq ft?', delay:1200 },
-  { type:'incoming', text:'A 3,000 sq ft plot at RoyalView Phase 2 is <b>₹73.35 Lakhs</b> (₹2,445/sq ft).\n\nWe have flexible payment plans —\n• 30% booking amount\n• Rest on registration\n• EMI options available through our banking partners <svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>', delay:2600 },
-  { type:'outgoing', text:'That\'s a bit high', delay:1000 },
-  { type:'incoming', text:'I understand your concern. Let me share something —\n\nPlots in this zone appreciated <b>40% in the last 2 years</b> due to Ring Road development. Current rates are actually <b>pre-appreciation prices</b>.\n\nWe also have our <b>Shaantivan</b> project in Urali Kanchan starting at <b>₹46 Lakhs</b> if you\'d like a more affordable option.\n\nWant me to compare both projects for you?', delay:3000 },
-  { type:'outgoing', text:'Yes compare both', delay:900 },
-  { type:'incoming', special:'comparison', delay:2000 },
-  { type:'outgoing', text:'I\'d like to visit RoyalView', delay:1200 },
-  { type:'incoming', text:'I\'ll schedule that for you! <svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>\n\nWhat works better — <b>Saturday morning</b> or <b>Sunday afternoon</b>?\n\nI\'ll personally ensure our site team gives you a complete walkthrough including the Ring Road alignment view. <svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/><rect x="9" y="14" width="6" height="6"/></svg>', delay:2200 },
+  { type:'outgoing', text:'Hi, Mulshi me plot available hai kya?', delay:800 },
+  { type:'incoming', text:'Ji haan! Main Reshma hoon, Excellence Farms se. Mulshi me humara <b>RoyalView Phase 2</b> project hai — premium NA plots starting <b>₹48.9 Lakhs</b> se.<br><br>Aap investment ke liye dekh rahe ho ya ghar banana hai?', delay:2200 },
+  { type:'outgoing', text:'Investment ke liye. Kitna bada plot milega?', delay:1400 },
+  { type:'incoming', text:'2,000 se 5,000 sq ft tak plots available hain. Location bahut acchi hai — <b>Hinjewadi IT Park se sirf 15 min</b>, aur Ring Road aa rahi hai bilkul paas se.<br><br>Main photos bhej deti hoon...', delay:2400 },
+  { type:'incoming', text:'<div style="background:rgba(255,77,0,.1);border-radius:12px;padding:16px;text-align:center;"><div style="font-size:2rem;margin-bottom:8px;"><svg class="svg-i" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><div style="font-weight:600;font-size:.95rem;">RoyalView Phase 2 — Site Photos</div><div style="font-size:.8rem;opacity:.7;margin-top:4px;">3 photos</div></div>', delay:1800 },
+  { type:'outgoing', text:'Accha dikhta hai. Legal papers clear hai?', delay:1600 },
+  { type:'incoming', text:'Bilkul clear hai! <b>NA approved, 7/12 clear title, RERA registered</b>. Complete documentation bhej sakti hoon abhi.<br><br>Weekend pe site visit karenge? Main personally ensure karungi ki aapko poora walkthrough mile.', delay:2600 },
+  { type:'outgoing', text:'3000 sq ft ka kya price hoga?', delay:1200 },
+  { type:'incoming', text:'3,000 sq ft plot ka price hai <b>₹73.35 Lakhs</b> (₹2,445/sq ft).<br><br>Humare flexible payment plans hain —<br>• 30% booking amount<br>• Baaki registration pe<br>• Bank EMI options bhi available hain', delay:2600 },
+  { type:'outgoing', text:'Thoda zyada hai yaar', delay:1000 },
+  { type:'incoming', text:'Main samajh sakti hoon. Lekin ek baat batau — is zone me last 2 saal me <b>40% appreciation</b> hua hai Ring Road development ki wajah se. Abhi jo rate hai, wo pre-appreciation hai.<br><br>Agar budget thoda kam hai toh humara <b>Shaantivan project Urali Kanchan me ₹46 Lakhs</b> se start hota hai. Dono compare karke dikhau?', delay:3000 },
+  { type:'outgoing', text:'Haan compare karo dono', delay:1000 },
+  { type:'incoming', text:'<div style="background:rgba(255,77,0,.08);border-radius:12px;padding:16px;"><table style="width:100%;font-size:.85rem;border-collapse:collapse;"><tr style="border-bottom:1px solid rgba(255,77,0,.15);"><td></td><td style="padding:8px;font-weight:700;color:#FF4D00;">RoyalView Phase 2</td><td style="padding:8px;font-weight:700;color:#FF4D00;">Shaantivan</td></tr><tr style="border-bottom:1px solid rgba(255,255,255,.05);"><td style="padding:8px;opacity:.7;">Location</td><td style="padding:8px;">Mulshi</td><td style="padding:8px;">Urali Kanchan</td></tr><tr style="border-bottom:1px solid rgba(255,255,255,.05);"><td style="padding:8px;opacity:.7;">Starting</td><td style="padding:8px;">₹48.9L</td><td style="padding:8px;">₹46L</td></tr><tr><td style="padding:8px;opacity:.7;">Highlight</td><td style="padding:8px;">Ring Road proximity</td><td style="padding:8px;">Pune-Solapur Highway</td></tr></table></div>', delay:2200 },
+  { type:'outgoing', text:'RoyalView accha lag raha hai. Site visit kar sakte hai?', delay:1400 },
+  { type:'incoming', text:'Zaroor! Saturday morning chalega ya Sunday afternoon? Main site team ko bol deti hoon — aapko complete walkthrough milega, Ring Road alignment bhi dikhaenge.<br><br>Aapka naam bata dijiye, main booking confirm kar deti hoon.', delay:2400 },
+  { type:'outgoing', text:'Rahul. Saturday 11 baje chalega', delay:1000 },
+  { type:'incoming', text:'Done Rahul ji! <b>Saturday 11 AM</b> — RoyalView Phase 2, Mulshi.<br><br>Main Friday ko ek reminder bhej dungi. Agar koi aur sawaal ho toh kabhi bhi message karna.<br><br>Aapka site visit ka experience bahut accha hoga, guaranteed!', delay:2600 },
 ];
 
 function createMsgEl(msg) {
   const el = document.createElement('div');
   el.className = `wa-msg ${msg.type}`;
-
-  if (msg.special === 'image') {
-    el.innerHTML = `
-      <div class="wa-img-placeholder">
-        <div class="icon"><svg class="svg-i" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-        <div class="caption">RoyalView_Phase2_Aerial.jpg</div>
-      </div>
-      <span style="font-size:.82rem;color:#BBBBBB">Here's the aerial view of our project site <svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
-      <span class="time">12:0${2 + Math.floor(Math.random()*5)} PM${msg.type==='outgoing'?'':' <span class="ticks"><svg class="svg-i" width="14" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(80,200,255,.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 6 9 17 4 12"/><polyline points="22 6 13 17"/></svg></span>'}</span>`;
-  } else if (msg.special === 'comparison') {
-    el.innerHTML = `
-      <div class="wa-comparison">
-        <div class="wa-comparison-header"><svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="8"/><rect x="14" y="6" width="3" height="12"/></svg> Project Comparison</div>
-        <div class="wa-comparison-body">
-          <div class="wa-comp-col">
-            <h4>RoyalView Phase 2</h4>
-            <p><svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> <strong>Mulshi</strong><br><svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><path d="M21 3l-7 7M3 21l7-7"/></svg> 2,000–5,000 sq ft<br><svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 010 7H6"/></svg> <strong>From ₹48.9L</strong><br><svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 22l3-20M14 2l3 20"/><path d="M12 5v2M12 11v2M12 17v2"/></svg> Ring Road adjacent<br><svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 6h1M14 6h1M9 10h1M14 10h1M9 14h1M14 14h1M9 22v-4h6v4"/></svg> 15 min to Hinjewadi<br><svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg> 40% appreciation zone</p>
-          </div>
-          <div class="wa-comp-col">
-            <h4>Shaantivan</h4>
-            <p><svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> <strong>Urali Kanchan</strong><br><svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><path d="M21 3l-7 7M3 21l7-7"/></svg> 1,500–4,000 sq ft<br><svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 010 7H6"/></svg> <strong>From ₹46L</strong><br><svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 22l3-20M14 2l3 20"/><path d="M12 5v2M12 11v2M12 17v2"/></svg> Near Pune-Solapur Hwy<br><svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 6h1M14 6h1M9 10h1M14 10h1M9 14h1M14 14h1M9 22v-4h6v4"/></svg> 20 min to Hadapsar<br><svg class="svg-i" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18"/><path d="M6 21c9-3 13-8 14-17-8 2-13 7-14 17z"/></svg> Green, peaceful locale</p>
-          </div>
-        </div>
-      </div>
-      <span class="time">12:0${4 + Math.floor(Math.random()*4)} PM <span class="ticks"><svg class="svg-i" width="14" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(80,200,255,.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 6 9 17 4 12"/><polyline points="22 6 13 17"/></svg></span></span>`;
-  } else {
-    const mins = String(Math.floor(Math.random()*8)+1).padStart(1,'0');
-    el.innerHTML = `${msg.text}<span class="time">12:0${mins} PM${msg.type==='outgoing'?'':' <span class="ticks"><svg class="svg-i" width="14" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(80,200,255,.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 6 9 17 4 12"/><polyline points="22 6 13 17"/></svg></span>'}</span>`;
-  }
+  const mins = String(Math.floor(Math.random()*8)+1).padStart(1,'0');
+  el.innerHTML = `${msg.text}<span class="time">12:0${mins} PM${msg.type==='outgoing'?'':' <span class="ticks"><svg class="svg-i" width="14" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(80,200,255,.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 6 9 17 4 12"/><polyline points="22 6 13 17"/></svg></span>'}</span>`;
   return el;
 }
 
