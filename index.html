@@ -794,43 +794,107 @@ img{max-width:100%;display:block}
       <p class="section-subtitle" style="margin-left:auto;margin-right:auto">Pay only for what you use. No monthly lock-in. Unused tokens carry forward.</p>
     </div>
 
-    <div class="price-main reveal">
-      <div class="plan-name">Token-Based Pricing</div>
-      <div class="token-price">
-        <span class="amount">&#8377;3</span>
-        <span class="per">per token</span>
-      </div>
-      <div class="price-sub">1 token = 1 AI message to your customer</div>
-      <ul class="price-features">
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Buy tokens as you need them</li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Unused tokens carry forward (never expire)</li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Works across all your WhatsApp numbers</li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Includes AI conversations, lead scoring, follow-ups</li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Custom dashboard included</li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Hosting and maintenance included</li>
-      </ul>
+    <div style="font-size:.88rem;color:var(--text-secondary);text-align:center;max-width:500px;margin:24px auto 0;line-height:1.6" class="reveal">
+      Choose a monthly plan. Tokens are credited to your wallet instantly. Use them for AI conversations, follow-ups, and lead qualification. Unused tokens carry forward to the next month.
     </div>
 
-    <div class="token-packs reveal" style="grid-template-columns:repeat(4,1fr)">
-      <div class="token-pack">
-        <div class="pack-tokens">3,333</div>
-        <div class="pack-label">tokens</div>
-        <div class="pack-price">&#8377;10,000</div>
+    <!-- PLAN CARDS -->
+    <div class="pricing-cards reveal" style="grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;max-width:720px;margin-left:auto;margin-right:auto">
+
+      <!-- STARTER -->
+      <div class="price-card" style="padding:24px 20px">
+        <div class="plan-name">Starter</div>
+        <div style="font-size:2rem;font-weight:900;margin:8px 0 2px">&#8377;10,000</div>
+        <div style="font-size:.78rem;color:var(--text-muted);margin-bottom:16px">per month</div>
+        <div style="background:var(--accent-glow);border-radius:8px;padding:10px;text-align:center;margin-bottom:16px">
+          <div style="font-size:1.3rem;font-weight:900;color:var(--accent)">3,333</div>
+          <div style="font-size:.72rem;color:var(--text-muted)">tokens / month</div>
+        </div>
+        <ul class="plan-includes">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> 1 WhatsApp number</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> AI sales conversations</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Lead capture and scoring</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Auto follow-ups</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Weekly reports</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Hosting and maintenance</li>
+        </ul>
+        <div style="font-size:.75rem;color:var(--text-muted);margin-top:12px;text-align:center">Best for: Testing and small campaigns</div>
       </div>
-      <div class="token-pack" style="border-color:var(--border-accent)">
-        <div class="pack-tokens">8,333</div>
-        <div class="pack-label">tokens</div>
-        <div class="pack-price">&#8377;25,000</div>
+
+      <!-- GROWTH -->
+      <div class="price-card featured" style="padding:24px 20px">
+        <div class="plan-name">Growth</div>
+        <div style="font-size:2rem;font-weight:900;margin:8px 0 2px">&#8377;25,000</div>
+        <div style="font-size:.78rem;color:var(--text-muted);margin-bottom:16px">per month</div>
+        <div style="background:var(--accent-glow);border-radius:8px;padding:10px;text-align:center;margin-bottom:16px">
+          <div style="font-size:1.3rem;font-weight:900;color:var(--accent)">8,333</div>
+          <div style="font-size:.72rem;color:var(--text-muted)">tokens / month</div>
+        </div>
+        <ul class="plan-includes">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Up to 3 WhatsApp numbers</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Everything in Starter</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Custom lead dashboard</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Hot lead instant alerts</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Campaign performance tracking</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Priority support</li>
+        </ul>
+        <div style="font-size:.75rem;color:var(--text-muted);margin-top:12px;text-align:center">Best for: Active lead generation</div>
       </div>
-      <div class="token-pack">
-        <div class="pack-tokens">16,667</div>
-        <div class="pack-label">tokens</div>
-        <div class="pack-price">&#8377;50,000</div>
+
+      <!-- SCALE -->
+      <div class="price-card" style="padding:24px 20px">
+        <div class="plan-name">Scale</div>
+        <div style="font-size:2rem;font-weight:900;margin:8px 0 2px">&#8377;50,000</div>
+        <div style="font-size:.78rem;color:var(--text-muted);margin-bottom:16px">per month</div>
+        <div style="background:var(--accent-glow);border-radius:8px;padding:10px;text-align:center;margin-bottom:16px">
+          <div style="font-size:1.3rem;font-weight:900;color:var(--accent)">16,667</div>
+          <div style="font-size:.72rem;color:var(--text-muted)">tokens / month</div>
+        </div>
+        <ul class="plan-includes">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Unlimited WhatsApp numbers</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Everything in Growth</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Human handoff workflows</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Site visit booking automation</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Multi-platform ready</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Dedicated account manager</li>
+        </ul>
+        <div style="font-size:.75rem;color:var(--text-muted);margin-top:12px;text-align:center">Best for: High-volume projects</div>
       </div>
-      <div class="token-pack">
-        <div class="pack-tokens">33,333</div>
-        <div class="pack-label">tokens</div>
-        <div class="pack-price">&#8377;1,00,000</div>
+    </div>
+
+    <!-- CUSTOM / ENTERPRISE -->
+    <div style="max-width:720px;margin:16px auto 0;background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 24px;display:flex;align-items:center;justify-content:space-between" class="reveal">
+      <div>
+        <div style="font-size:.88rem;font-weight:700">Enterprise</div>
+        <div style="font-size:.78rem;color:var(--text-muted)">1,00,000+ tokens, custom integrations, dedicated infrastructure</div>
+      </div>
+      <a href="https://wa.me/919765071249" style="font-size:.82rem;font-weight:700;color:var(--accent)">Let's Talk</a>
+    </div>
+
+    <!-- HOW WALLET WORKS -->
+    <div style="max-width:720px;margin:28px auto 0" class="reveal">
+      <div style="font-size:.88rem;font-weight:700;text-align:center;margin-bottom:16px">How the Token Wallet Works</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:center">
+        <div style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 12px">
+          <div style="font-size:1.4rem;margin-bottom:6px">1</div>
+          <div style="font-size:.78rem;font-weight:600">Choose Plan</div>
+          <div style="font-size:.72rem;color:var(--text-muted);margin-top:4px">Pick a monthly plan that fits your volume</div>
+        </div>
+        <div style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 12px">
+          <div style="font-size:1.4rem;margin-bottom:6px">2</div>
+          <div style="font-size:.78rem;font-weight:600">Tokens Credited</div>
+          <div style="font-size:.72rem;color:var(--text-muted);margin-top:4px">Tokens instantly added to your wallet each month</div>
+        </div>
+        <div style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 12px">
+          <div style="font-size:1.4rem;margin-bottom:6px">3</div>
+          <div style="font-size:.78rem;font-weight:600">AI Responds</div>
+          <div style="font-size:.72rem;color:var(--text-muted);margin-top:4px">1 token deducted per AI message sent</div>
+        </div>
+        <div style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 12px">
+          <div style="font-size:1.4rem;margin-bottom:6px">4</div>
+          <div style="font-size:.78rem;font-weight:600">Carry Forward</div>
+          <div style="font-size:.72rem;color:var(--text-muted);margin-top:4px">Unused tokens roll over to next month</div>
+        </div>
       </div>
     </div>
 
