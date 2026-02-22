@@ -17,6 +17,7 @@
   --wa-green:#005C4B;--wa-bg:#0B141A;--wa-incoming:#1F2C34;--wa-outgoing:#005C4B;
   --radius:16px;--radius-sm:10px;
   --font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --hot:#FF4D00;--warm:#F59E0B;--cold:#6B7280;--new:#3B82F6;
 }
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -36,14 +37,13 @@ img{max-width:100%;display:block}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-/* ═══ NAVBAR ═══ */
+/* NAVBAR */
 .navbar{
   position:fixed;top:0;left:0;right:0;z-index:100;
   padding:14px 20px;
   background:rgba(255,255,255,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
   box-shadow:0 1px 3px rgba(0,0,0,.05);border-bottom:1px solid var(--border);
-  display:flex;justify-content:space-between;align-items:center;
-  transition:padding .3s;
+  display:flex;justify-content:space-between;align-items:center;transition:padding .3s;
 }
 .navbar.scrolled{padding:10px 20px}
 .nav-logo{font-weight:800;font-size:1rem;letter-spacing:-.5px}
@@ -55,7 +55,7 @@ img{max-width:100%;display:block}
 }
 .nav-cta:hover{background:var(--accent-dark);transform:translateY(-1px)}
 
-/* ═══ PERSONAL INTRO ═══ */
+/* PERSONAL INTRO */
 .personal-intro{padding:32px 20px 0;margin-top:72px}
 .intro-card{
   max-width:640px;margin:0 auto;
@@ -71,7 +71,28 @@ img{max-width:100%;display:block}
 .intro-body{font-size:.92rem;color:var(--text-secondary);line-height:1.7;font-family:Georgia,serif;font-style:italic}
 .intro-sign{margin-top:14px;font-size:.8rem;font-weight:700;color:var(--accent);font-family:var(--font);font-style:normal}
 
-/* ═══ BENEFITS ═══ */
+/* APPROACH */
+.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px}
+@media(max-width:560px){.approach-grid{grid-template-columns:1fr}}
+.approach-card{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px 24px;position:relative;
+}
+.approach-card.ours{border:2px solid var(--accent)}
+.approach-card .card-tag{
+  font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:3px 12px;border-radius:50px;display:inline-block;margin-bottom:14px;
+}
+.tag-them{background:rgba(0,0,0,.06);color:var(--text-muted)}
+.tag-us{background:rgba(255,77,0,.1);color:var(--accent)}
+.approach-card h3{font-size:1rem;font-weight:800;margin-bottom:10px}
+.approach-card ul{list-style:none;padding:0}
+.approach-card ul li{
+  font-size:.85rem;color:var(--text-secondary);padding:6px 0;
+  display:flex;align-items:flex-start;gap:8px;line-height:1.5;
+}
+
+/* BENEFITS */
 .benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
 @media(max-width:560px){.benefits-grid{grid-template-columns:1fr}}
 .benefit-card{
@@ -87,19 +108,13 @@ img{max-width:100%;display:block}
 .benefit-card p{font-size:.82rem;color:var(--text-secondary);line-height:1.5}
 .benefit-stat{font-size:1.6rem;font-weight:900;color:var(--accent);margin-bottom:2px}
 
-/* ═══ SCOPE ═══ */
+/* SCOPE */
 .scope-section{background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
 @media(max-width:560px){.scope-grid{grid-template-columns:1fr}}
-.scope-box{
-  background:var(--bg);border:1px solid var(--border);
-  border-radius:var(--radius);padding:28px 24px;
-}
+.scope-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px}
 .scope-box h3{font-size:1rem;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.scope-box .badge{
-  font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-  padding:3px 10px;border-radius:50px;
-}
+.scope-box .badge{font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:50px}
 .badge-us{background:rgba(255,77,0,.1);color:var(--accent)}
 .badge-you{background:rgba(0,0,0,.06);color:var(--text-muted)}
 .scope-list{list-style:none;padding:0}
@@ -111,7 +126,86 @@ img{max-width:100%;display:block}
 .scope-list li:last-child{border-bottom:none}
 .scope-list li svg{flex-shrink:0;margin-top:2px}
 
-/* ═══ WHATSAPP DEMO ═══ */
+/* DASHBOARD PREVIEW */
+.dash-section{background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.dash-container{margin-top:36px}
+.dash-frame{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.06);
+}
+.dash-topbar{
+  background:#FAFAFA;border-bottom:1px solid var(--border);
+  padding:12px 20px;display:flex;align-items:center;justify-content:space-between;
+}
+.dash-topbar-left{display:flex;align-items:center;gap:10px}
+.dash-dot{width:10px;height:10px;border-radius:50%}
+.dash-topbar-title{font-size:.8rem;font-weight:700;color:var(--text-muted)}
+.dash-tabs{display:flex;gap:0;border-bottom:1px solid var(--border)}
+.dash-tab{
+  padding:10px 20px;font-size:.78rem;font-weight:600;color:var(--text-muted);
+  cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;
+}
+.dash-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.dash-tab:hover{color:var(--text)}
+.dash-body{padding:20px}
+
+/* Stats Row */
+.dash-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+@media(max-width:560px){.dash-stats{grid-template-columns:repeat(2,1fr)}}
+.dash-stat-card{
+  background:var(--bg-alt);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:16px;text-align:center;
+}
+.dash-stat-num{font-size:1.5rem;font-weight:900}
+.dash-stat-label{font-size:.7rem;color:var(--text-muted);margin-top:4px;text-transform:uppercase;letter-spacing:.5px}
+.stat-hot{color:var(--hot)}
+.stat-warm{color:var(--warm)}
+.stat-total{color:var(--accent)}
+.stat-visits{color:#10B981}
+
+/* Lead Table */
+.dash-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.dash-table th{
+  text-align:left;padding:10px 12px;font-size:.7rem;
+  color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;
+  border-bottom:2px solid var(--border);font-weight:700;
+}
+.dash-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text-secondary)}
+.dash-table tr:hover{background:rgba(255,77,0,.02)}
+.lead-name{font-weight:600;color:var(--text)}
+.lead-badge{
+  display:inline-block;padding:2px 8px;border-radius:50px;
+  font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
+}
+.badge-hot{background:rgba(255,77,0,.1);color:var(--hot)}
+.badge-warm{background:rgba(245,158,11,.1);color:var(--warm)}
+.badge-cold{background:rgba(107,114,128,.1);color:var(--cold)}
+.badge-new{background:rgba(59,130,246,.1);color:var(--new)}
+.lead-project{font-size:.78rem}
+.lead-action{font-size:.78rem;color:var(--accent);font-weight:600}
+
+/* Funnel Chart */
+.dash-funnel{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:560px){.dash-funnel{grid-template-columns:1fr}}
+.funnel-box{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px}
+.funnel-title{font-size:.78rem;font-weight:700;margin-bottom:14px;color:var(--text)}
+.funnel-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.funnel-label{font-size:.75rem;color:var(--text-muted);width:80px;flex-shrink:0}
+.funnel-bar-bg{flex:1;height:24px;background:rgba(0,0,0,.04);border-radius:6px;overflow:hidden;position:relative}
+.funnel-bar{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:8px;font-size:.7rem;font-weight:700;color:#fff;transition:width 1s ease}
+.funnel-bar.fb{background:linear-gradient(90deg,#1877F2,#42A5F5)}
+.funnel-bar.ig{background:linear-gradient(90deg,#E4405F,#F77737)}
+.funnel-bar.wa{background:linear-gradient(90deg,#25D366,#128C7E)}
+.funnel-bar.web{background:linear-gradient(90deg,var(--accent),var(--accent-dark))}
+.funnel-count{font-size:.75rem;color:var(--text-muted);margin-left:8px;flex-shrink:0}
+
+/* Pie / Donut */
+.donut-container{display:flex;align-items:center;justify-content:center;gap:20px}
+.donut-legend{display:flex;flex-direction:column;gap:8px}
+.donut-legend-item{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-secondary)}
+.donut-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+
+/* WHATSAPP DEMO */
 .demo-section{background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .wa-phone{
   max-width:400px;margin:36px auto 0;border-radius:18px;overflow:hidden;
@@ -161,38 +255,52 @@ img{max-width:100%;display:block}
 .demo-play-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(255,77,0,.35)}
 .demo-play-btn.hidden{display:none}
 
-/* ═══ PRICING ═══ */
-.pricing-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px}
-@media(max-width:560px){.pricing-cards{grid-template-columns:1fr}}
-.price-card{
-  background:var(--bg-card);border:1px solid var(--border);
-  border-radius:var(--radius);padding:28px 24px;position:relative;transition:all .3s;
+/* PRICING */
+.pricing-section{text-align:center}
+.price-main{
+  max-width:480px;margin:36px auto 0;
+  background:var(--bg-card);border:2px solid var(--accent);
+  border-radius:var(--radius);padding:36px 32px;position:relative;
+  box-shadow:0 8px 32px rgba(255,77,0,.1);
 }
-.price-card:hover{border-color:var(--border-accent)}
-.price-card.featured{border:2px solid var(--accent);box-shadow:0 8px 32px rgba(255,77,0,.1)}
-.price-card.featured::after{
-  content:'BEST VALUE';position:absolute;top:-11px;right:20px;
-  background:var(--accent);color:#fff;font-size:.62rem;font-weight:800;
-  letter-spacing:1.5px;padding:3px 12px;border-radius:50px;
+.price-main .plan-name{font-size:.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
+.token-price{display:flex;align-items:baseline;justify-content:center;gap:4px;margin-bottom:8px}
+.token-price .amount{font-size:3rem;font-weight:900;color:var(--accent)}
+.token-price .per{font-size:1rem;color:var(--text-muted)}
+.price-sub{font-size:.88rem;color:var(--text-secondary);margin-bottom:24px}
+.price-features{list-style:none;padding:0;text-align:left;max-width:340px;margin:0 auto}
+.price-features li{
+  font-size:.88rem;color:var(--text-secondary);padding:8px 0;
+  display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border);
 }
-.price-card .plan-name{font-size:.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
-.price-card .plan-numbers{font-size:.85rem;color:var(--text-secondary);margin-bottom:16px}
-.price-card .plan-setup{font-size:2rem;font-weight:900;margin-bottom:4px}
-.price-card .plan-setup .sub{font-size:.85rem;font-weight:500;color:var(--text-muted)}
-.price-card .plan-monthly{font-size:1rem;font-weight:700;color:var(--accent);margin-bottom:20px}
-.price-card .plan-monthly .sub{font-size:.8rem;font-weight:500;color:var(--text-muted)}
-.price-card .plan-includes{list-style:none;padding:0}
-.price-card .plan-includes li{
-  font-size:.82rem;color:var(--text-secondary);padding:6px 0;
-  display:flex;align-items:center;gap:8px;
+.price-features li:last-child{border-bottom:none}
+.price-features li svg{flex-shrink:0}
+.setup-box{
+  max-width:480px;margin:20px auto 0;
+  background:var(--bg-alt);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:20px 24px;
+  display:flex;align-items:center;justify-content:space-between;
 }
-.price-card .plan-includes li svg{flex-shrink:0}
-.price-card .plan-save{
-  display:inline-block;margin-top:16px;
-  background:rgba(255,77,0,.08);color:var(--accent);
-  padding:4px 14px;border-radius:50px;font-size:.75rem;font-weight:700;
+@media(max-width:480px){.setup-box{flex-direction:column;gap:8px;text-align:center}}
+.setup-box .setup-label{font-size:.88rem;color:var(--text-secondary)}
+.setup-box .setup-price{font-size:1.3rem;font-weight:900;color:var(--text)}
+.setup-includes{
+  max-width:480px;margin:12px auto 0;
+  font-size:.8rem;color:var(--text-muted);text-align:center;line-height:1.6;
 }
-
+.token-packs{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+  max-width:480px;margin:24px auto 0;
+}
+@media(max-width:480px){.token-packs{grid-template-columns:1fr}}
+.token-pack{
+  background:var(--bg-alt);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:16px;text-align:center;transition:all .3s;
+}
+.token-pack:hover{border-color:var(--border-accent)}
+.token-pack .pack-tokens{font-size:1.2rem;font-weight:900;color:var(--text)}
+.token-pack .pack-label{font-size:.7rem;color:var(--text-muted);margin-top:2px}
+.token-pack .pack-price{font-size:.9rem;font-weight:700;color:var(--accent);margin-top:6px}
 .passthrough-note{
   max-width:520px;margin:24px auto 0;text-align:center;
   background:var(--bg-alt);border:1px solid var(--border);
@@ -200,21 +308,24 @@ img{max-width:100%;display:block}
 }
 .passthrough-note p{font-size:.82rem;color:var(--text-muted);line-height:1.5}
 .passthrough-note strong{color:var(--text-secondary)}
+.free-trial{
+  max-width:480px;margin:20px auto 0;
+  background:linear-gradient(135deg,rgba(255,77,0,.04),rgba(255,77,0,.08));
+  border:1px solid var(--border-accent);
+  border-radius:var(--radius-sm);padding:16px 20px;text-align:center;
+}
+.free-trial p{font-size:.9rem;font-weight:700;color:var(--accent)}
+.free-trial .sub{font-size:.8rem;font-weight:400;color:var(--text-muted);margin-top:4px}
 
-/* ═══ FUTURE / ROADMAP ═══ */
+/* ROADMAP */
 .roadmap-items{margin-top:32px;max-width:560px}
-.roadmap-item{
-  display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);
-}
+.roadmap-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)}
 .roadmap-item:last-child{border-bottom:none}
-.roadmap-dot{
-  width:10px;height:10px;border-radius:50%;border:2px solid var(--accent);
-  margin-top:5px;flex-shrink:0;
-}
+.roadmap-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--accent);margin-top:5px;flex-shrink:0}
 .roadmap-item h4{font-size:.9rem;font-weight:700;margin-bottom:4px}
 .roadmap-item p{font-size:.8rem;color:var(--text-muted);line-height:1.5}
 
-/* ═══ FINAL CTA ═══ */
+/* FINAL CTA */
 .final-cta{text-align:center;padding:72px 20px 100px}
 .final-cta h2{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:900;margin-bottom:14px;line-height:1.2}
 .final-cta p{color:var(--text-muted);font-size:.95rem;margin-bottom:36px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.6}
@@ -225,7 +336,6 @@ img{max-width:100%;display:block}
   border:none;cursor:pointer;transition:all .3s;box-shadow:0 4px 20px rgba(255,77,0,.25);
 }
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,77,0,.35)}
-
 .footer{text-align:center;padding:20px;border-top:1px solid var(--border);font-size:.7rem;color:var(--text-muted)}
 
 @media(max-width:480px){
@@ -249,14 +359,50 @@ img{max-width:100%;display:block}
   <div class="intro-card">
     <div class="greeting">Reshma Mam,</div>
     <div class="intro-body">
-      Thank you for your time on our call. As discussed, here's the complete proposal for your WhatsApp AI system. We've designed this keeping Excellence Farms' scale and your board's requirements in mind.
+      Thank you for sharing that brochure and for your trust in us. We evaluated the platform in detail and had a conversation with their team. Here is our updated proposal, designed specifically for Excellence Farms with a flexible, usage-based pricing model.
     </div>
     <div class="intro-sign">— Shruti & Vallabh</div>
   </div>
 </section>
 
+<!-- OUR APPROACH vs DIY -->
+<section class="section" id="approach">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Our Approach</div>
+      <h2 class="section-title">Built <span class="highlight">For You</span>, Not By You</h2>
+      <p class="section-subtitle">Most platforms give you a dashboard and leave you to figure it out. We do things differently.</p>
+    </div>
+    <div class="approach-grid">
+      <div class="approach-card reveal">
+        <div class="card-tag tag-them">Self-Service Platforms</div>
+        <h3>You Do Everything</h3>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> You upload property details yourself</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> You train and configure the bot</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Generic template dashboard</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Bot quality depends on your setup</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Same product for every industry</li>
+        </ul>
+      </div>
+      <div class="approach-card ours reveal">
+        <div class="card-tag tag-us">Our Approach</div>
+        <h3>We Build It For You</h3>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> We sit with you, understand your sales process</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> We train the AI on your specific business</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Custom dashboard for your projects</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Bot works perfectly from day one</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Built specifically for real estate sales</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> CRM and voice calling ready for future</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- BENEFITS -->
-<section class="section" id="benefits">
+<section class="section" id="benefits" style="background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="container">
     <div class="reveal">
       <div class="section-label">Why This Matters</div>
@@ -268,7 +414,7 @@ img{max-width:100%;display:block}
         <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <div class="benefit-stat">24/7</div>
         <h3>Always Available</h3>
-        <p>Your AI agent replies instantly at 2 AM or 2 PM. Weekends, holidays, festivals — no enquiry goes unanswered.</p>
+        <p>Your AI agent replies instantly at 2 AM or 2 PM. Weekends, holidays, festivals. No enquiry goes unanswered.</p>
       </div>
       <div class="benefit-card reveal">
         <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
@@ -280,25 +426,25 @@ img{max-width:100%;display:block}
         <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
         <div class="benefit-stat">Natural</div>
         <h3>Speaks Like You</h3>
-        <p>Conversations in natural Marathi-English — not robotic flows. Handles objections, shares photos, pricing, legal docs, and books site visits.</p>
+        <p>Conversations in natural Marathi-English. Not robotic flows. Handles objections, shares photos, pricing, and books site visits.</p>
       </div>
       <div class="benefit-card reveal">
         <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
         <div class="benefit-stat">Auto</div>
-        <h3>Follow-ups That Work</h3>
-        <p>Automatic 24-hour, 3-day, and 7-day follow-ups. Interested leads stay warm. No one falls through the cracks.</p>
+        <h3>Smart Follow-ups</h3>
+        <p>Automatic follow-ups based on lead interest. Hot leads get same-day attention. Warm leads stay engaged. No one falls through the cracks.</p>
       </div>
       <div class="benefit-card reveal">
         <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
         <div class="benefit-stat">Live</div>
-        <h3>Monthly Reports</h3>
-        <p>See exactly how many leads came in, conversations handled, site visits booked, and which projects are getting the most interest.</p>
+        <h3>Custom Dashboard</h3>
+        <p>See all your leads, conversations, site visits, and campaign performance in one place. Built specifically for Excellence Farms.</p>
       </div>
       <div class="benefit-card reveal">
         <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div class="benefit-stat">100%</div>
         <h3>Your Data, Your Control</h3>
-        <p>All lead data belongs to Excellence Farms. No third-party platform lock-in. Complete transparency.</p>
+        <p>All lead data belongs to Excellence Farms. No third-party platform lock-in. Complete ownership and transparency.</p>
       </div>
     </div>
   </div>
@@ -310,75 +456,183 @@ img{max-width:100%;display:block}
     <div class="reveal">
       <div class="section-label">Scope of Work</div>
       <h2 class="section-title">What's <span class="highlight">Included</span></h2>
-      <p class="section-subtitle">Everything you need to turn WhatsApp into your most powerful sales channel.</p>
+      <p class="section-subtitle">We handle the technology. You focus on closing deals.</p>
     </div>
     <div class="scope-grid">
       <div class="scope-box reveal">
         <h3><span class="badge badge-us">We Handle</span></h3>
         <ul class="scope-list">
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            WhatsApp Business API setup & registration per number
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            AI agent trained on your properties — pricing, amenities, legal documents, FAQs
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Natural Marathi-English AI sales conversations
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Automatic lead capture & qualification
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Automated follow-up sequences (24hr, 3-day, 7-day)
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Message template creation & Meta approval
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Hosting, AI infrastructure & system maintenance
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Monthly performance reports
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            AI training updates (new projects, price changes, inventory)
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Staff training session (1 included)
-          </li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> WhatsApp Business API setup and registration</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Detailed business deep-dive and AI training session</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Complete property knowledge base creation</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Natural Marathi-English-Hindi AI conversations</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Automatic lead capture and qualification (hot/warm/cold)</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Smart follow-up sequences based on lead interest</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Site visit booking automation</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Hot lead instant alerts to your team on WhatsApp</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Human handoff when buyer is ready to close</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Message template creation and Meta approval</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Custom lead dashboard with project-wise views</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Campaign tracking (which ad brought which lead)</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Weekly performance reports</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Hosting, AI infrastructure and maintenance</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Ongoing AI updates (new projects, pricing, inventory)</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Staff training session included</li>
         </ul>
       </div>
       <div class="scope-box reveal">
         <h3><span class="badge badge-you">Your Team</span></h3>
         <ul class="scope-list">
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            Marketing broadcast content (festival offers, new launches, event invites)
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            Approving broadcast lists & timing
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            Confirming site visits with qualified prospects
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            Closing deals (human handoff after AI qualification)
-          </li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Marketing broadcast content (festival offers, new launches)</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Approving broadcast lists and timing</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Confirming site visits with qualified prospects</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Closing deals (human handoff after AI qualification)</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD PREVIEW -->
+<section class="section dash-section" id="dashboard">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label" style="justify-content:center">Dashboard Preview</div>
+      <h2 class="section-title" style="margin-left:auto;margin-right:auto">Your <span class="highlight">Lead Dashboard</span></h2>
+      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">All your leads, conversations, and campaign performance in one place. Built custom for Excellence Farms.</p>
+    </div>
+    <div class="dash-container reveal">
+      <div class="dash-frame">
+        <div class="dash-topbar">
+          <div class="dash-topbar-left">
+            <div class="dash-dot" style="background:var(--accent)"></div>
+            <div class="dash-topbar-title">Excellence Farms</div>
+          </div>
+          <div style="font-size:.72rem;color:var(--text-muted)">Last updated: Just now</div>
+        </div>
+        <div class="dash-tabs">
+          <div class="dash-tab active">Overview</div>
+          <div class="dash-tab">Leads</div>
+          <div class="dash-tab">Campaigns</div>
+          <div class="dash-tab">Conversations</div>
+        </div>
+        <div class="dash-body">
+          <!-- Stats -->
+          <div class="dash-stats">
+            <div class="dash-stat-card">
+              <div class="dash-stat-num stat-total">847</div>
+              <div class="dash-stat-label">Total Leads</div>
+            </div>
+            <div class="dash-stat-card">
+              <div class="dash-stat-num stat-hot">126</div>
+              <div class="dash-stat-label">Hot Leads</div>
+            </div>
+            <div class="dash-stat-card">
+              <div class="dash-stat-num stat-warm">289</div>
+              <div class="dash-stat-label">Warm Leads</div>
+            </div>
+            <div class="dash-stat-card">
+              <div class="dash-stat-num stat-visits">64</div>
+              <div class="dash-stat-label">Site Visits Booked</div>
+            </div>
+          </div>
+
+          <!-- Lead Table -->
+          <div style="overflow-x:auto">
+          <table class="dash-table">
+            <thead>
+              <tr>
+                <th>Lead</th>
+                <th>Status</th>
+                <th>Project</th>
+                <th>Source</th>
+                <th>Next Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="lead-name">Rahul Deshmukh</span><br><span style="font-size:.72rem;color:var(--text-muted)">+91 98xxx xxxxx</span></td>
+                <td><span class="lead-badge badge-hot">Hot</span></td>
+                <td class="lead-project">RoyalView Phase 2</td>
+                <td style="font-size:.78rem">Facebook Ad</td>
+                <td class="lead-action">Site visit Saturday</td>
+              </tr>
+              <tr>
+                <td><span class="lead-name">Priya Kulkarni</span><br><span style="font-size:.72rem;color:var(--text-muted)">+91 87xxx xxxxx</span></td>
+                <td><span class="lead-badge badge-hot">Hot</span></td>
+                <td class="lead-project">Shaantivan</td>
+                <td style="font-size:.78rem">Instagram</td>
+                <td class="lead-action">Follow-up call today</td>
+              </tr>
+              <tr>
+                <td><span class="lead-name">Amit Joshi</span><br><span style="font-size:.72rem;color:var(--text-muted)">+91 90xxx xxxxx</span></td>
+                <td><span class="lead-badge badge-warm">Warm</span></td>
+                <td class="lead-project">RoyalView Phase 2</td>
+                <td style="font-size:.78rem">WhatsApp Direct</td>
+                <td class="lead-action">Send pricing details</td>
+              </tr>
+              <tr>
+                <td><span class="lead-name">Sneha Patil</span><br><span style="font-size:.72rem;color:var(--text-muted)">+91 70xxx xxxxx</span></td>
+                <td><span class="lead-badge badge-warm">Warm</span></td>
+                <td class="lead-project">Shaantivan</td>
+                <td style="font-size:.78rem">Google Ad</td>
+                <td class="lead-action">3-day follow-up</td>
+              </tr>
+              <tr>
+                <td><span class="lead-name">Vikram Mehta</span><br><span style="font-size:.72rem;color:var(--text-muted)">+91 99xxx xxxxx</span></td>
+                <td><span class="lead-badge badge-new">New</span></td>
+                <td class="lead-project">RoyalView Phase 2</td>
+                <td style="font-size:.78rem">Website</td>
+                <td class="lead-action">AI qualifying now</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+
+          <!-- Funnel + Source -->
+          <div class="dash-funnel">
+            <div class="funnel-box">
+              <div class="funnel-title">Leads by Source</div>
+              <div class="funnel-bar-row">
+                <div class="funnel-label">Facebook</div>
+                <div class="funnel-bar-bg"><div class="funnel-bar fb" style="width:68%">312</div></div>
+              </div>
+              <div class="funnel-bar-row">
+                <div class="funnel-label">Instagram</div>
+                <div class="funnel-bar-bg"><div class="funnel-bar ig" style="width:45%">198</div></div>
+              </div>
+              <div class="funnel-bar-row">
+                <div class="funnel-label">WhatsApp</div>
+                <div class="funnel-bar-bg"><div class="funnel-bar wa" style="width:32%">187</div></div>
+              </div>
+              <div class="funnel-bar-row">
+                <div class="funnel-label">Website</div>
+                <div class="funnel-bar-bg"><div class="funnel-bar web" style="width:22%">150</div></div>
+              </div>
+            </div>
+            <div class="funnel-box">
+              <div class="funnel-title">Conversion Funnel</div>
+              <div class="funnel-bar-row">
+                <div class="funnel-label">Enquiries</div>
+                <div class="funnel-bar-bg"><div class="funnel-bar" style="width:100%;background:var(--accent)">847</div></div>
+              </div>
+              <div class="funnel-bar-row">
+                <div class="funnel-label">Qualified</div>
+                <div class="funnel-bar-bg"><div class="funnel-bar" style="width:49%;background:var(--warm)">415</div></div>
+              </div>
+              <div class="funnel-bar-row">
+                <div class="funnel-label">Site Visits</div>
+                <div class="funnel-bar-bg"><div class="funnel-bar" style="width:15%;background:#10B981">126</div></div>
+              </div>
+              <div class="funnel-bar-row">
+                <div class="funnel-label">Closed</div>
+                <div class="funnel-bar-bg"><div class="funnel-bar" style="width:5%;background:#6366F1">38</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:.75rem;color:var(--text-muted);margin-top:12px">Dashboard will be customised to your projects and integrated with WhatsApp, Instagram and Facebook lead sources. CRM and voice calling compatible for future phases.</p>
     </div>
   </div>
 </section>
@@ -389,7 +643,7 @@ img{max-width:100%;display:block}
     <div class="reveal" style="text-align:center">
       <div class="section-label" style="justify-content:center">Live Preview</div>
       <h2 class="section-title" style="margin-left:auto;margin-right:auto">See Your <span class="highlight">AI Agent</span> in Action</h2>
-      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">A real customer enquiry — from first message to site visit booking.</p>
+      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">A real customer enquiry, from first message to site visit booking.</p>
     </div>
     <div class="wa-phone reveal">
       <div class="wa-header">
@@ -411,42 +665,62 @@ img{max-width:100%;display:block}
 </section>
 
 <!-- PRICING -->
-<section class="section" id="pricing">
+<section class="section pricing-section" id="pricing">
   <div class="container">
-    <div class="reveal" style="text-align:center">
+    <div class="reveal">
       <div class="section-label" style="justify-content:center">Investment</div>
-      <h2 class="section-title" style="margin-left:auto;margin-right:auto">Simple, <span class="highlight">Transparent</span> Pricing</h2>
+      <h2 class="section-title" style="margin-left:auto;margin-right:auto">Simple, <span class="highlight">Usage-Based</span> Pricing</h2>
+      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">Pay only for what you use. No monthly lock-in. Unused tokens carry forward.</p>
     </div>
-    <div class="pricing-cards">
-      <div class="price-card reveal">
-        <div class="plan-name">Starter</div>
-        <div class="plan-numbers">1 WhatsApp Number</div>
-        <div class="plan-setup">&#8377;40,000 <span class="sub">one-time setup</span></div>
-        <div class="plan-monthly">&#8377;10,000<span class="sub"> /month</span></div>
-        <ul class="plan-includes">
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Full AI sales agent</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Lead capture & follow-ups</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Template management</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Monthly reports</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Hosting & maintenance</li>
-        </ul>
+
+    <div class="price-main reveal">
+      <div class="plan-name">Token-Based Pricing</div>
+      <div class="token-price">
+        <span class="amount">&#8377;3</span>
+        <span class="per">per token</span>
       </div>
-      <div class="price-card featured reveal">
-        <div class="plan-name">Growth</div>
-        <div class="plan-numbers">3 WhatsApp Numbers</div>
-        <div class="plan-setup">&#8377;75,000 <span class="sub">one-time setup</span></div>
-        <div class="plan-monthly">&#8377;30,000<span class="sub"> /month (&#8377;10,000/number)</span></div>
-        <ul class="plan-includes">
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Everything in Starter &times; 3</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Per-project AI training</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Cross-number lead routing</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Priority support</li>
-        </ul>
-        <div class="plan-save">Save &#8377;45,000 on setup</div>
+      <div class="price-sub">1 token = 1 AI message to your customer</div>
+      <ul class="price-features">
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Buy tokens as you need them</li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Unused tokens carry forward (never expire)</li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Works across all your WhatsApp numbers</li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Includes AI conversations, lead scoring, follow-ups</li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Custom dashboard included</li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Hosting and maintenance included</li>
+      </ul>
+    </div>
+
+    <div class="token-packs reveal">
+      <div class="token-pack">
+        <div class="pack-tokens">1,667</div>
+        <div class="pack-label">tokens</div>
+        <div class="pack-price">&#8377;5,000</div>
+      </div>
+      <div class="token-pack" style="border-color:var(--border-accent)">
+        <div class="pack-tokens">3,333</div>
+        <div class="pack-label">tokens</div>
+        <div class="pack-price">&#8377;10,000</div>
+      </div>
+      <div class="token-pack">
+        <div class="pack-tokens">8,333</div>
+        <div class="pack-label">tokens</div>
+        <div class="pack-price">&#8377;25,000</div>
       </div>
     </div>
+
+    <div class="setup-box reveal">
+      <div class="setup-label">One-time setup (training, knowledge base, deployment)</div>
+      <div class="setup-price">&#8377;20,000</div>
+    </div>
+    <div class="setup-includes">Includes: Business deep-dive session, property knowledge base, WhatsApp API setup, dashboard configuration, staff training</div>
+
+    <div class="free-trial reveal">
+      <p>500 free tokens to get started</p>
+      <div class="sub">See real results before you commit further</div>
+    </div>
+
     <div class="passthrough-note reveal">
-      <p><strong>Message costs:</strong> WhatsApp charges per marketing/utility message at Meta's published rates. These are passed through at cost — no markup from our side. Customer service conversations are free.</p>
+      <p><strong>Marketing messages:</strong> WhatsApp charges for marketing and utility messages at Meta's published rates. These are passed through at cost. No markup from our side. Customer service conversations are free.</p>
     </div>
   </div>
 </section>
@@ -455,30 +729,37 @@ img{max-width:100%;display:block}
 <section class="section" style="padding-bottom:40px">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">Coming Soon</div>
-      <h2 class="section-title">Future <span class="highlight">Integrations</span></h2>
-      <p class="section-subtitle">As your system matures, we can extend it with these capabilities.</p>
+      <div class="section-label">Coming Next</div>
+      <h2 class="section-title">Future <span class="highlight">Capabilities</span></h2>
+      <p class="section-subtitle">Your dashboard is built to grow with you. These features will plug right in when you are ready.</p>
     </div>
     <div class="roadmap-items">
       <div class="roadmap-item reveal">
         <div class="roadmap-dot"></div>
         <div>
-          <h4>CRM Dashboard</h4>
-          <p>All your leads in one place — filter by project, status, source. Track conversion funnels and team performance.</p>
+          <h4>CRM Integration</h4>
+          <p>Full contact management, deal tracking, and team collaboration. Your dashboard evolves into a complete sales CRM.</p>
         </div>
       </div>
       <div class="roadmap-item reveal">
         <div class="roadmap-dot"></div>
         <div>
-          <h4>AI Voice Agent</h4>
-          <p>Automated voice calls for follow-ups, site visit reminders, and feedback collection. Speaks naturally in Marathi-English.</p>
+          <h4>AI Voice Calling</h4>
+          <p>Automated follow-up calls, site visit reminders, and feedback collection. Natural conversations in Marathi, Hindi, and English.</p>
         </div>
       </div>
       <div class="roadmap-item reveal">
         <div class="roadmap-dot"></div>
         <div>
-          <h4>Analytics & Insights</h4>
-          <p>Which ads drive the most leads? Peak enquiry hours? Budget-wise demand patterns? Data-driven decisions for your marketing spend.</p>
+          <h4>Multi-Platform Integration</h4>
+          <p>Connect Instagram, Facebook, and website leads into the same dashboard. One view for all your lead sources.</p>
+        </div>
+      </div>
+      <div class="roadmap-item reveal">
+        <div class="roadmap-dot"></div>
+        <div>
+          <h4>Advanced Analytics</h4>
+          <p>Which campaigns drive the most site visits? Peak enquiry hours? Budget-wise demand? Data to optimise your marketing spend.</p>
         </div>
       </div>
     </div>
@@ -489,17 +770,17 @@ img{max-width:100%;display:block}
 <section class="final-cta">
   <div class="container reveal">
     <div class="section-label" style="justify-content:center;margin-bottom:16px">Ready?</div>
-    <h2>Whenever you're ready,<br>we'd love to <span class="highlight">get started</span></h2>
-    <p>We'll handle the entire setup. You just focus on closing deals.</p>
+    <h2>Let's get your AI agent <span class="highlight">working for you</span></h2>
+    <p>We handle the complete setup. You just focus on closing deals.</p>
     <a href="https://wa.me/919765071249" class="btn-primary">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-      I'm Interested — Let's Discuss
+      Schedule Training Session
     </a>
   </div>
 </section>
 
 <footer class="footer">
-  <p>With gratitude — Shruti & Vallabh &middot; February 2026</p>
+  <p>With gratitude — Shruti & Vallabh</p>
 </footer>
 
 <script>
@@ -567,5 +848,6 @@ const ds=document.getElementById('demo');let started=false;
 const dObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!started&&!demoRunning){started=true;setTimeout(()=>startDemo(),500);dObs.unobserve(x.target)}})},{threshold:.3});
 dObs.observe(ds);
 </script>
+
 </body>
 </html>
